@@ -8,14 +8,22 @@ import { Component, Input, OnInit } from '@angular/core';
 export class NgxPasswordStrengthComponent implements OnInit {
   points: Array<Object>;
   pointNum: number = 5;
+  strength: number = null;
   private defaultColor: string = "#DDD";
 
-  @Input() colors: Array<String> = ['#F00', '#F90', '#FF0', '#9F0', '#0F0'];
+  
+  @Input() colors: Array<String> = ['#EB1C24', '#F15A25', '#FA931D', '#F8B03A', '#37B54A'];
+  @Input() statusText: Array<String> = ['Very weak', 'Weak', 'Reasonable', 'Good', 'Strong'];
+  @Input() showStatusText: boolean = true;
   @Input()
   set checkPassword(value: string) {
     if (value) {
       let c = this.getColor(this.measureStrength(value));
       this.pointHandle(c.idx, c.color);
+      this.strength = c.idx - 1;
+    } else {
+      this.pointHandle(); 
+      this.strength = null;
     }
   }
 
