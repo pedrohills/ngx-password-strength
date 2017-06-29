@@ -4,7 +4,7 @@ A password strength component for Angular 2+
 ## Install
 
 ```
-npm i --S https://github.com/pedrohills/ngx-password-strength.git
+npm i -S https://github.com/pedrohills/ngx-password-strength.git
 ```
 
 
